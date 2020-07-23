@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <!-- Global site tag (gtag.js) - Google Analytics -->
+     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173386228-1"></script>
+     <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+
+           gtag('config', 'UA-173386228-1');
+     </script>
+     <title>Raspberry Pi Projects | EleComHacks</title>
+
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="../../css/bootstrap.min.css">
+     <link rel="stylesheet" href="../../css/magnific-popup.css">
+     <link rel="stylesheet" href="../../css/font-awesome.min.css">
+	 <link rel="icon" href="../../images/Elecomhacks-logo.png" type="image/icon type">
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="../../css/templatemo-style.css">
+</head>
+<body>
+
+     <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+               <span class="spinner-rotate"></span>
+          </div>
+     </section>
+
+
+     <!-- MENU -->
+     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+                    <link rel="icon" href="../../images/Elecomhacks-logo.png" type="image/icon type">
+                    <!-- lOGO TEXT HERE -->
+                    <a href="../../index.html" class="navbar-brand">EleComHacks</a>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                         <li><a href="../../index.html" class="smoothScroll">Home</a></li>
+                         <li><a href="../../experiments/raspberry-pi/rpi.html" class="smoothScroll">Back</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                              <li><a href="https://www.facebook.com/rakesh.roshan.94651" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                              <li><a href="https://twitter.com/_rakesh_roshan" class="fa fa-twitter"></a></li>
+                              <li><a href="https://www.instagram.com/the.name.is.roshan/" class="fa fa-instagram"></a></li>
+                              <li><a href="https://www.linkedin.com/in/rakesh-roshan-b7823b130/" class="fa fa-linkedin"></a></li>
+                    </ul>
+               </div>
+
+          </div>
+     </section>
+
+
+     <!-- BLOG HEADER -->
+     <section id="blog-header" data-stellar-background-ratio="0.5">
+          <div class="overlay"></div>
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-offset-1 col-md-5 col-sm-12">
+                         <h2>Raspberry Pi Projects</h2>
+                    </div>
+                    
+               </div>
+          </div>
+     </section>
+
+
+
+     <!-- BLOG DETAIL -->
+     <section id="blog-detail" data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-offset-1 col-md-10 col-sm-12"> 
+                         <!-- BLOG THUMB -->
+                         <div class="blog-detail-thumb">
+                              <div class="blog-image">
+                                   
+                              </div>
+                              <h2>Getting started with Raspberry Pi 4</h2>
+                              <p>In this article let's do a quick headless setup of <b>Raspberry Pi 4</b> using SSH over Wi-Fi.</p> 
+                              <br>
+                              <p><i>Note:</i> Since I purchased Raspberry Pi from PiBox India (Raspberry Pi 4 4GB: <a href="https://amzn.to/3hyiEvd">https://amzn.to/3hyiEvd </a>), I received a 16GB SD Card with pre-installed OS</p>
+                              <p>Anyhow you can use this link to begin it from scratch i.e. Downloading the image file and burning the image to SD Card and continue from here to enable SSH </p>
+                              <h3>Step 1: Adding few files to the extracted disk image</h3>
+                              <p>Here is a image of the files available in the SD card</p>
+                              <img src="../../images/before_ssh.jpg" alt="Before SSH File" height="300px" width="1200px">
+                              <br>
+                              <p>Now let's add an empty file named <b>ssh</b> <i>{Do not add any extension}.</i> To do this, right-click in an empty space and click <i>New -> Text Document </i></p>
+                              <p>Name the empty file as <em>"ssh"</em></p>
+                              <img src="../../images/after_ssh.jpg" alt="After adding SSH" height="300px" width="1200px">
+                              <br>
+                              <p>Now Let's add another file name <i>wpa_supplicant.conf</i>. And the content to that file is as below:</p>
+                              <code> ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev <br>
+                                          update_config=1 <br>
+                                          country=IN<br>
+
+                                          network={<br>
+                                             ssid="<i>Use your SSID (Network name)</i>" <br>
+                                             psk="<i>Password (********)</i>" <br>
+                                             }</code> 
+                              <p>This above code is from <a href="https://www.raspberrypi.org/documentation/configuration/wireless/headless.md">https://www.raspberrypi.org/documentation/configuration/wireless/headless.md</a>. See <a href="https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes">Wikipedia</a> for a list of 2 letter ISO 3166-1 country codes.</p>
+
+                              <br>
+                              <h3>Step 2: Eject the SD card</h3>
+                              <br>
+                              <h3>Step 3: Boot the Pi from SD Card</h3>
+                              <p>Insert the SD card to Raspberry Pi. Power up the Pi4 using a USB-C cable.</p>
+                              <br>
+                              <h3>Step 4: Login over Wi-Fi </h3>
+                              <p>To access the Raspberry Pi, we need to download Putty. If you have Putty, you can skip the below steps.</p>
+                              <ul>
+                                   <li>Download the 64-bit MSI (Windows Installer) (<a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>) </li>
+                                   <li>Install the software by giving it necessary permissions</li>
+                                   <li>Add Desktop shortcut</li>
+                              </ul>
+
+                              <p>Let's access the Raspberry Pi4 using Putty.</p>
+                              <ol>
+                                   <li>Launch Putty</li>
+                                   <li>Set the <b>Host Name(or IP Address)</b> field to <b>raspberrypi.local</b></li>
+                                   <li>By default the Port should be set to 22 and Connection type should be set to SSH</li>
+                                   <li>Click Open <i>If you see a Security Alert select Yes</i></li>
+                                   <li>A new terminal window should appear prompting you for a user name</li>
+                                   <li>The default user name is: <b>pi</b></li>
+                                   <li>The default password is : <b>raspberry</b></li>
+                              </ol>
+                              <br>
+                              <h3>Step 4: Congratulations !!!! </h3>
+                              <p>The Raspberry Pi is now accessible over Wi-Fi.</p>
+                              <p> Let's do a quick update: </p>
+                              <code>sudo apt-get update -y </code><br>
+                              <code>sudo apt-get upgrade -y</code> 
+                              <br><br><br>
+
+                              <p><i>Reference:</i> <a href="https://www.raspberrypi.org/documentation/configuration/wireless/headless.md">https://www.raspberrypi.org/documentation/configuration/wireless/headless.md </a></p> 
+
+                                                    
+                              
+                             
+                              
+                         </div>
+                    </div>
+                    
+               </div>
+          </div>
+     </section> 
+
+
+     <!-- FOOTER -->
+     <footer data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+
+                   
+
+                 
+
+                  
+                    
+               </div>
+          </div>
+     </footer>
+
+     
+     <!-- SCRIPTS -->
+     <script src="../../js/jquery.js"></script>
+     <script src="../../js/bootstrap.min.js"></script>
+     <script src="../../js/jquery.stellar.min.js"></script>
+     <script src="../../js/jquery.magnific-popup.min.js"></script>
+     <script src="../../js/smoothscroll.js"></script>
+     <script src="../../js/custom.js"></script>
+
+</body>
+</html>
